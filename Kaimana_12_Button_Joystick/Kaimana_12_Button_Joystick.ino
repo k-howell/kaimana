@@ -173,6 +173,10 @@ int pollSwitches(void) {
         //Buttons hold to start tourneymode
         if(holdTimeout == 2000) {
             tournamentMode = true;
+            for(int i = 0; i < LED_COUNT; i++) {
+                iLED[i] = false;
+                ledBrightness[i] = 0.0F;
+            }
             tourneyModeActivate();
             holdTimeout = 0;
         }
