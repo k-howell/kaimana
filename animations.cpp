@@ -102,7 +102,7 @@ int animation_idle(void) {
   // set initial color to BLACK
   kaimana.setALL(BLACK);
   while (true) {
-    kaimana.setLED(LED_JOY, 0, 128, 255);
+    // kaimana.setLED(LED_JOY, 0, 128, 255);
     for (index = 0; index < IDLE_SIZE; ++index) {
       // update strip with new color2
       /*
@@ -152,7 +152,16 @@ void tourneyModeActivate(void) {
   kaimana.setLED(LED_P1, BLACK);
   kaimana.updateALL();
   delay(T_DELAY);
-  kaimana.setLED(LED_JOY, BLACK);
+  kaimana.setLED(LED_RIGHT, BLACK);
+  kaimana.updateALL();
+  delay(T_DELAY);
+  kaimana.setLED(LED_DOWN, BLACK);
+  kaimana.updateALL();
+  delay(T_DELAY);
+  kaimana.setLED(LED_LEFT, BLACK);
+  kaimana.updateALL();
+  delay(T_DELAY);
+  kaimana.setLED(LED_UP, BLACK);
   kaimana.updateALL();
   delay(T_DELAY);
   kaimana.setALL(BLACK);
@@ -165,7 +174,16 @@ void tourneyModeDeactivate(void) {
   kaimana.setALL(BLACK);
   kaimana.updateALL();
   delay(T_DELAY);
-  kaimana.setLED(LED_JOY, WHITE);
+  kaimana.setLED(LED_RIGHT, WHITE);
+  kaimana.updateALL();
+  delay(T_DELAY);
+  kaimana.setLED(LED_DOWN, WHITE);
+  kaimana.updateALL();
+  delay(T_DELAY);
+  kaimana.setLED(LED_LEFT, WHITE);
+  kaimana.updateALL();
+  delay(T_DELAY);
+  kaimana.setLED(LED_UP, WHITE);
   kaimana.updateALL();
   delay(T_DELAY);
   kaimana.setLED(LED_K1, WHITE);
