@@ -16,15 +16,6 @@
 #define _IDLE_DEFAULT animation_idle();
 
 #ifdef _LED_ORDER_FULL
-  #define  LED_JOY     16
-  #define  LED_P4      8
-  #define  LED_P4_B    9
-  #define  LED_P3      10
-  #define  LED_P3_B    11
-  #define  LED_P2      12
-  #define  LED_P2_B    13
-  #define  LED_P1      14
-  #define  LED_P1_B    15
   #define  LED_K1      0
   #define  LED_K1_B    1
   #define  LED_K2      2
@@ -33,8 +24,24 @@
   #define  LED_K3_B    5
   #define  LED_K4      6
   #define  LED_K4_B    7
+  #define  LED_P4      8
+  #define  LED_P4_B    9
+  #define  LED_P3      10
+  #define  LED_P3_B    11
+  #define  LED_P2      12
+  #define  LED_P2_B    13
+  #define  LED_P1      14
+  #define  LED_P1_B    15
+  #define  LED_RIGHT   16
+  #define  LED_RIGHT_B 17
+  #define  LED_DOWN    18
+  #define  LED_DOWN_B  19
+  #define  LED_LEFT    20
+  #define  LED_LEFT_B  21
+  #define  LED_UP      22
+  #define  LED_UP_B    23
   // maximum number of LEDs attached to Kaimana board
-  #define  LED_COUNT   17
+  #define  LED_COUNT   24
 #endif
 
 // general definitions for delays and other customizable features

@@ -131,36 +131,36 @@ int pollSwitches(void) {
       joystickDirection |= ATTACK_UP;
     }
 
-    switch(joystickDirection) {
-        case ATTACK_RIGHT: // right
-            readJoystickSwitch();
-            break;
-        case ATTACK_LEFT: // left
-            readJoystickSwitch();
-            break;
-        case ATTACK_DOWN: // down
-            readJoystickSwitch();
-            break;
-        case ATTACK_DOWN + ATTACK_RIGHT: // down + right
-            readJoystickSwitch();
-            break;
-        case ATTACK_DOWN + ATTACK_LEFT: // down + left
-            readJoystickSwitch();
-            break;
-        case ATTACK_UP: // up
-            readJoystickSwitch();
-            break;
-        case ATTACK_UP + ATTACK_RIGHT: // up + right
-            readJoystickSwitch();
-            break;
-        case ATTACK_UP + ATTACK_LEFT:  // up + left
-            readJoystickSwitch();
-            break;
-        default:  // zero or any undefined value on an 8 way stick like UP+DOWN which is not happening on my watch
-            kaimana.setLED(LED_JOY, BLACK);
-            iLED[LED_JOY] = false;
-            break;
-    }
+    // switch(joystickDirection) {
+    //     case ATTACK_RIGHT: // right
+    //         readJoystickSwitch();
+    //         break;
+    //     case ATTACK_LEFT: // left
+    //         readJoystickSwitch();
+    //         break;
+    //     case ATTACK_DOWN: // down
+    //         readJoystickSwitch();
+    //         break;
+    //     case ATTACK_DOWN + ATTACK_RIGHT: // down + right
+    //         readJoystickSwitch();
+    //         break;
+    //     case ATTACK_DOWN + ATTACK_LEFT: // down + left
+    //         readJoystickSwitch();
+    //         break;
+    //     case ATTACK_UP: // up
+    //         readJoystickSwitch();
+    //         break;
+    //     case ATTACK_UP + ATTACK_RIGHT: // up + right
+    //         readJoystickSwitch();
+    //         break;
+    //     case ATTACK_UP + ATTACK_LEFT:  // up + left
+    //         readJoystickSwitch();
+    //         break;
+    //     default:  // zero or any undefined value on an 8 way stick like UP+DOWN which is not happening on my watch
+    //         kaimana.setLED(LED_JOY, BLACK);
+    //         iLED[LED_JOY] = false;
+    //         break;
+    // }
     
     // clear results for switch activity
     switchActivity = ATTACK_NONE;
@@ -188,7 +188,7 @@ int pollSwitches(void) {
     readAttackSwitch(PIN_K1, ATTACK_K1, LED_K1);
     readAttackSwitch(PIN_K2, ATTACK_K2, LED_K2);
     readAttackSwitch(PIN_K3, ATTACK_K3, LED_K3);
-    readAttackSwitch(PIN_K4, ATTACK_K4, LED_K4);
+    readAttackSwitch(PIN_K4, ATTACK_K4, LED_K4); 
     
     // convert joystick, P1-P4, K1-K4 into a single unsigned int
     switchActivity = joystickDirection + switchActivity;
@@ -264,15 +264,15 @@ void readAttackSwitch(int pin, int attack, int LED) {
     }
 }
 
-void readJoystickSwitch() {
-  if(iLED[LED_JOY] == true) {
-      //maintain color while switch is active
-      iLED[LED_JOY] = true;
-  }
-  else {
-      // Light joystick LED
-      // setLEDRandomColor(LED_JOY);
-      kaimana.setLED(LED_JOY, MAGENTA);
-      iLED[LED_JOY] = true;
-  }
-}
+// void readJoystickSwitch() {
+//   if(iLED[LED_JOY] == true) {
+//       //maintain color while switch is active
+//       iLED[LED_JOY] = true;
+//   }
+//   else {
+//       // Light joystick LED
+//       // setLEDRandomColor(LED_JOY);
+//       kaimana.setLED(LED_JOY, MAGENTA);
+//       iLED[LED_JOY] = true;
+//   }
+// }

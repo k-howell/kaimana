@@ -96,7 +96,7 @@ void Kaimana::setALL(int iR, int iG, int iB)
   int index;
 
   // set all leds in the array to the RGB color passed to this function
-  for(index=0;index<LED_COUNT;++index)
+  for(index=0;index<LED_COUNT;index += 2)
   {
     setLEDBrightness( index, iR, iG, iB, _LED_BRIGHTNESS);
   }
