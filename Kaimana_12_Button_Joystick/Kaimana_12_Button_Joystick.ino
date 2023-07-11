@@ -188,7 +188,11 @@ int pollSwitches(void) {
     readAttackSwitch(PIN_K1, ATTACK_K1, LED_K1);
     readAttackSwitch(PIN_K2, ATTACK_K2, LED_K2);
     readAttackSwitch(PIN_K3, ATTACK_K3, LED_K3);
-    readAttackSwitch(PIN_K4, ATTACK_K4, LED_K4); 
+    readAttackSwitch(PIN_K4, ATTACK_K4, LED_K4);
+    readAttackSwitch(PIN_LEFT, ATTACK_LEFT, LED_LEFT);
+    readAttackSwitch(PIN_DOWN, ATTACK_DOWN, LED_DOWN);
+    readAttackSwitch(PIN_RIGHT, ATTACK_RIGHT, LED_RIGHT);
+    readAttackSwitch(PIN_UP, ATTACK_UP, LED_UP);
     
     // convert joystick, P1-P4, K1-K4 into a single unsigned int
     switchActivity = joystickDirection + switchActivity;
