@@ -42,6 +42,7 @@ void readJoystickSwitch();
 int tourneypollSwitches(void);
 
 boolean tournamentMode = false;
+boolean isIdle = false;
 int holdTimeout = 0;
 int selection = 0;
 int intensity=0;
@@ -73,12 +74,13 @@ void loop() {
         if (tournamentMode != true) {
             if( pollSwitches() != 0 ) {
                 // some switches were active so reset idle timeout to now + some seconds
+                isIdle = false;
                 ulTimeout = millis() + ( (unsigned long)IDLE_TIMEOUT_SECONDS * 1000 );
             }
             else {
                 // no switches active so test for start of idle timeout
                 if( millis() > ulTimeout ) {
-                    // animation_idle();
+                    isIdle = true;
                     animation_idle();
                 }
             }
@@ -256,15 +258,17 @@ void readAttackSwitch(int pin, int attack, int LED) {
     }
   else {
         // switch is inactive
-        if(ledBrightness[LED] <= 0) {
-            kaimana.setLED(LED, BLACK);
-            ledBrightness[LED] = 0.0F;
+        if(!isIdle) {
+            if(ledBrightness[LED] <= 0) {
+                kaimana.setLED(LED, BLACK);
+                ledBrightness[LED] = 0.0F;
+            }
+            else {
+                ledBrightness[LED] = ledBrightness[LED] - 0.001F;
+                kaimana.setLEDBrightness(LED, MAGENTA, ledBrightness[LED]);
+            }
+            iLED[LED] = false;
         }
-        else {
-            ledBrightness[LED] = ledBrightness[LED] - 0.001F;
-            kaimana.setLEDBrightness(LED, MAGENTA, ledBrightness[LED]);
-        }
-        iLED[LED] = false;
     }
 }
 
